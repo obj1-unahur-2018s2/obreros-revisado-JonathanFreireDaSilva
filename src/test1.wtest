@@ -1,0 +1,40 @@
+import obreros.*
+import obras.*
+
+test "test1" {
+
+	const obra1 = new Obra()
+	obra1.ladrillos(1000)
+    obra1.metrosDeCanio(400)
+    obra1.fosforos(8000)
+	obra1.arandelas(500)
+	
+	
+	
+	const obrero1 = new Albanil()
+	const obrero2 = new Albanil()
+	const obrero3 = new Gasista()
+	const obrero4 = new Gasista()
+	const obrero5 = new Plomero()
+	
+	obra1.agregarObrero(obrero1)
+	obra1.agregarObrero(obrero2)
+	obra1.agregarObrero(obrero3)
+	obra1.agregarObrero(obrero4)
+	obra1.agregarObrero(obrero5)
+	
+	obrero2.tomarLicencia()
+	
+
+	obra1.iniciarObra()
+	
+	assert.equals(900, obra1.ladrillos())
+	
+	assert.equals(384, obra1.metrosDeCanio())
+	
+	assert.equals(7960, obra1.fosforos())
+	
+	assert.equals(470, obra1.arandelas())
+	
+
+}
