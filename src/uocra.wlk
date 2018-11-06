@@ -3,19 +3,23 @@ object uocra {
 	var obrerosRegistrados
 	
 	method jornalAlbanil() {
-		return 300
+		return 2000
+		//300
 	}
 	
 	method jornalGasista() {
-		return 1300
+		return 3000
+		//1300
 	}
 	
 	method jornalPlomero() {
-		return 800
+		return 3000
+		//800
 	}
 	
 	method jornalElectricista() {
-		return 1000
+		return 3500
+		//1000
 	}
 	
 }

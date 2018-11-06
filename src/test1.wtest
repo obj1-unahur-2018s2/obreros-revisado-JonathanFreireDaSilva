@@ -4,37 +4,68 @@ import obras.*
 test "test1" {
 
 	const obra1 = new Obra()
-	obra1.ladrillos(1000)
-    obra1.metrosDeCanio(400)
-    obra1.fosforos(8000)
-	obra1.arandelas(500)
+	obra1.ladrillos(10000000)
+    obra1.metrosDeCanio(100000)
+    obra1.fosforos(100000)
+	obra1.arandelas(100000)
+	obra1.rolloCinta(100)
+	obra1.metrosDeCable(1000)
 	
 	
+	const albanil1 = new Albanil()
+	const albanil2 = new Albanil()
+	const gasista1 = new Gasista()
+	const gasista2 = new Gasista()
+	const plomero1 = new Plomero()
+	const elec = new Electricista()
 	
-	const obrero1 = new Albanil()
-	const obrero2 = new Albanil()
-	const obrero3 = new Gasista()
-	const obrero4 = new Gasista()
-	const obrero5 = new Plomero()
+	obra1.agregarObrero(albanil1)
+	obra1.agregarObrero(albanil2)
+	obra1.agregarObrero(gasista1)
+	obra1.agregarObrero(gasista2)
+	obra1.agregarObrero(plomero1)
+	obra1.agregarObrero(elec)
 	
-	obra1.agregarObrero(obrero1)
-	obra1.agregarObrero(obrero2)
-	obra1.agregarObrero(obrero3)
-	obra1.agregarObrero(obrero4)
-	obra1.agregarObrero(obrero5)
-	
-	obrero2.tomarLicencia()
+	albanil2.tomarLicencia()
 	
 
 	obra1.iniciarObra()
 	
-	assert.equals(900, obra1.ladrillos())
+/*  assert.equals(900, obra1.ladrillos())
 	
 	assert.equals(384, obra1.metrosDeCanio())
 	
 	assert.equals(7960, obra1.fosforos())
 	
-	assert.equals(470, obra1.arandelas())
+	assert.equals(470, obra1.arandelas()) */
 	
-
+	
+	
+/*    assert.equals(300,albanil1.debeCobrar())
+    assert.equals(0,albanil2.debeCobrar())
+    assert.equals(1300,gasista1.debeCobrar())
+    assert.equals(1300,gasista2.debeCobrar())
+    assert.equals(800,plomero1.debeCobrar()) */
+    
+    albanil2.volverDeLicencia()
+    
+    plomero1.tomarLicencia()
+    
+    obra1.fondos(100000)
+    
+    obra1.iniciarObra()
+ 
+    
+    assert.equals(4000,albanil1.debeCobrar())
+    assert.equals(2000,albanil2.debeCobrar())
+    assert.equals(6000,gasista1.debeCobrar())
+    assert.equals(6000,gasista2.debeCobrar())
+    assert.equals(3000,plomero1.debeCobrar())
+    assert.equals(7000,elec.debeCobrar())
+    assert.equals(28000,obra1.totalDeuda())
+    obra1.registrarPagos()
+    assert.equals(72000,obra1.fondos())
+    
+    assert.equals([obra1],albanil1.obras())
+    assert.that(albanil1.pasoPor(obra1))
 }
